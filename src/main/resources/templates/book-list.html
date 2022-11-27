@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Библиотечный каталог</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+    <div th:if="${message != null}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
+    <h2 class="text-center" style="margin-top: 20px;">Каталог книг</h2>
+    <div class="text-end" style="margin-right: 20px; margin-bottom: 20px;">
+        <a th:href="@{/add-book}">Добавить книгу</a>
+    </div>
+    <table class="table table-bordered border-primary">
+        <thead class="table-primary">
+            <tr>
+                <th>Номер книги</th>
+                <th>Название</th>
+                <th>Автор</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <th:block th:each="book: ${bookList}">
+                <tr>
+                    <td>[[${book.idBook}]]</td>
+                    <td>[[${book.bookTitle}]]</td>
+                    <td>[[${book.bookAuthor}]]</td>
+                    <td class="text-center">
+                        <a th:href="@{'/book/' + ${book.idBook}}" class="btn btn-success">Подробнее</a>
+                        <a th:href="@{'/book-update/' + ${book.idBook}}" class="btn btn-primary">Редактировать</a>
+                        <a th:href="@{'/books/delete/' + ${book.idBook}}" class="btn btn-danger">Удалить</a>
+                    </td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+</body>
+</html>

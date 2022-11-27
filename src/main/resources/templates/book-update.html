@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование книги</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<h2 class="text-center" style="margin: 20px;">Редактирование книги</h2>
+<div style="display: flex; justify-content: center;">
+    <div style="width: 38%;"></div>
+        <div style="width: 24%;">
+            <form class="text-end" method="post" th:action="@{/book-update}" th:object="${updateBook}">
+                <label>Номер книги:
+                    <input readonly type="number" th:field="*{idBook}">
+                </label>
+                <br><br>
+                <label>Название:
+                    <input type="text" th:field="*{bookTitle}" required minlength="1" maxlength="50">
+                </label>
+                <br><br>
+                <label>Автор:
+                    <input type="text" th:field="*{bookAuthor}" required minlength="1" maxlength="50">
+                </label>
+                <br><br>
+                <label>Издательство:
+                    <input type="text" th:field="*{bookPublisher}" required minlength="1" maxlength="50">
+                </label>
+                <br><br>
+                <label>Страна:
+                    <input type="text" th:field="*{publicCountry}" required minlength="1" maxlength="50">
+                </label>
+                <br><br>
+                <label>Год издания:
+                    <input type="text" th:field="*{publicYear}" required minlength="1" maxlength="50">
+                </label>
+                <br><br>
+                <label>Количество страниц:
+                    <input type="text" th:field="*{quantityPages}" required minlength="1" maxlength="50">
+                </label>
+                <br><br>
+
+                <button type="submit" class="btn btn-success">Сохранить изменения</button>
+
+                <a th:href="@{/}" class="btn btn-danger">Отмена</a>
+            </form>
+        </div>
+    <div style="width: 38%;"></div>
+</div>
+</body>
+</html>

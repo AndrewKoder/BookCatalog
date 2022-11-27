@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о книге</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container-fluid text-center">
+    <h2>Информация о книге</h2>
+
+    <th:block th:each="book: ${bookInfo}">
+        <h4>Номер книги: [[${book.idBook}]]</h4>
+        <h4>Название: [[${book.bookTitle}]]</h4>
+        <h4>Автор: [[${book.bookAuthor}]]</h4>
+        <h4>Издательство: [[${book.bookPublisher}]]</h4>
+        <h4>Год издания: [[${book.publicYear}]]</h4>
+        <h4>Страна: [[${book.publicCountry}]]</h4>
+        <h4>Количество страниц: [[${book.quantityPages}]]</h4>
+    </th:block>
+
+    <a th:href="@{/}">На главную</a>
+</body>
+</html>

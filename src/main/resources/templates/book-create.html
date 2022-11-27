@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление книги</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<h2 class="text-center" style="margin: 20px;">Добавление новой книги</h2>
+    <div class="container-fluid text-center">
+        <form method="post" th:action="@{/add-book}" th:object="${book}">
+            <label>
+                <input type="text" th:field="*{bookTitle}" required minlength="1" maxlength="50" placeholder="Название">
+            </label>
+            <br><br>
+            <label>
+                <input type="text" th:field="*{bookAuthor}" required minlength="1" maxlength="50" placeholder="Автор">
+            </label>
+            <br><br>
+            <label>
+                <input type="text" th:field="*{bookPublisher}" required minlength="1" maxlength="50" placeholder="Издательство">
+            </label>
+            <br><br>
+            <label>
+                <input type="text" th:field="*{publicCountry}" required minlength="1" maxlength="50" placeholder="Страна">
+            </label>
+            <br><br>
+            <label>
+                <input type="text" th:field="*{publicYear}" required minlength="1" maxlength="50" placeholder="Год издания">
+            </label>
+            <br><br>
+            <label>
+                <input type="text" th:field="*{quantityPages}" required minlength="1" maxlength="50" placeholder="Количество страниц">
+            </label>
+            <br><br>
+
+            <button type="submit" class="btn btn-success">Добавить</button>
+
+            <a th:href="@{/}" class="btn btn-danger">Отмена</a>
+        </form>
+    </div>
+</body>
+</html>
